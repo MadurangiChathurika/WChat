@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "chatapp",
-    "slug": "chatapp",
+    "name": "chattingApp",
+    "slug": "chattingApp",
     "platforms": [
       "ios",
       "android",
@@ -9,9 +9,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/chatim.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/chatim.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,7 +22,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ucsc2017cs018.ChattingApp",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.ucsc2017cs018.ChattingApp",
+      "versionCode": 1
     }
   }
 }

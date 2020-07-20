@@ -1,13 +1,47 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import ApiKeys from './constants/ApiKeys';
+import * as firebase from 'firebase';
+import LoginScreen from './screens/auth/LoginScreen'
+import SignupScreen from './screens/auth/SignupScreen'
+import ForgotPasswordScreen from './screens/auth/ForgotPasswordScreen'
+import HomeScreen from './screens/HomeScreen'
+import { createAppContainer,createSwitchNavigator } from 'react-navigation';
+import TestScreen from './screens/TestScreen';
+import Login from './screens/Login';
+import ChatScreen from './screens/ChatScreen';
+import ChangePasswordScreen from './screens/ChangePasswordScreen';
+import ChangeEmailScreen from './screens/ChangeEmailScreen';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+//remove yellow color warning labels
+console.disableYellowBox = true;
+
+export default class App extends React.Component {
+  render(){
+    //Initialize firebase...
+      if (!firebase.apps.length) { firebase.initializeApp(ApiKeys.FirebaseConfig); }
+      
+    return (
+      
+      <AppNavigator />
+    );
+  }
 }
+
+const AppSwitchNavigator = createSwitchNavigator({
+  LoginScreen:LoginScreen,
+  SignupScreen:SignupScreen,
+  ForgotPasswordScreen:ForgotPasswordScreen,
+  HomeScreen:HomeScreen,
+  TestScreen:TestScreen,
+  Login:Login,
+  ChatScreen:ChatScreen,
+  ChangePasswordScreen:ChangePasswordScreen,
+  ChangeEmailScreen:ChangeEmailScreen,
+});
+
+const AppNavigator = createAppContainer
+(AppSwitchNavigator);
 
 const styles = StyleSheet.create({
   container: {
@@ -17,3 +51,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
